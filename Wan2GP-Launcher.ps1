@@ -3,13 +3,13 @@ $OutputEncoding = [System.Text.Encoding]::UTF8
 
 Write-Host " ===========================================" -ForegroundColor Green
 Write-Host ""
-Write-Host "  ██▓        ██▓    ██▓        ██▓" -ForegroundColor Yellow
+Write-Host "  ██▓        ██    ██▓        ██" -ForegroundColor Yellow
 Write-Host " ▓██▒              ▓██▒" -ForegroundColor Yellow
 Write-Host " ▒██░              ▒██░" -ForegroundColor Yellow
 Write-Host " ▒██░              ▒██░" -ForegroundColor Yellow
-Write-Host " ░██████▒ ██▓  ██▓ ░██████▒ ██▓  ██▓" -ForegroundColor Yellow
-Write-Host " ░ ▒░▓  ░ ▒▓▒  ▒▓▒ ░ ▒░▓  ░ ▒▓▒  ▒▓▒" -ForegroundColor Yellow
-Write-Host " ░ ░ ▒  ░ ░▒   ░▒  ░ ░ ▒  ░ ░▒   ░▒" -ForegroundColor Yellow
+Write-Host " ░██████▒ ██▓  ██▓ ░██████▒ ██▓  ██" -ForegroundColor Yellow
+Write-Host " ░ ▒░▓  ░ ▒▓  ▒▓▒ ░ ▒░▓  ░ ▒▓  ▒▓" -ForegroundColor Yellow
+Write-Host " ░ ░ ▒  ░ ░▒   ░  ░ ░ ▒  ░ ░▒   ░" -ForegroundColor Yellow
 Write-Host "   ░ ░    ░    ░     ░ ░    ░    ░" -ForegroundColor Yellow
 Write-Host "     ░  ░  ░    ░      ░  ░  ░    ░" -ForegroundColor Yellow
 Write-Host ""
@@ -254,6 +254,15 @@ if ($Action -eq "install") {
     } else {
         Write-Step "Project folder already exists, skipping clone."
     }
+
+    Write-Step "Installing Python $pythonVer via UV..."
+    & $UvExePath python install $pythonVer
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "Failed to install Python $pythonVer"
+        Pause-Script
+        exit 1
+    }
+    Write-Success "Python $pythonVer installed successfully."
 
     Write-Step "Creating Python virtual environment (Python $pythonVer) at $EnvPath ..."
     & $UvExePath venv $EnvPath --python $pythonVer
