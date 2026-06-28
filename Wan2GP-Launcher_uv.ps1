@@ -15,6 +15,8 @@ Write-Host "     ░  ░  ░    ░      ░  ░  ░    ░" -ForegroundColo
 Write-Host ""
 Write-Host "  ===========================================" -ForegroundColor Green
 Write-Host "    Wan2GP Launcher & Installer (UV)" -ForegroundColor Yellow
+Write-Host "    By Soror L.'.L.'." -ForegroundColor Yellow
+Write-Host ""
 Write-Host "    Automatic Setup for GTX/RTX GPUs" -ForegroundColor Green
 Write-Host "    Python 3.10 / 3.11 Ready" -ForegroundColor Cyan
 Write-Host "    Portable UV environment included" -ForegroundColor Cyan
