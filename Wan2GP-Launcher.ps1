@@ -209,7 +209,7 @@ if ($Action -eq "install") {
 
     if ($gpuChoice -eq "2") {
         $config = "RTX"
-        $pythonVer = "3.11.14"
+        $pythonVer = "3.11"
         $torchArgs = @("torch==2.10.0", "torchvision==0.25.0", "torchaudio==2.10.0", "--index-url", "https://download.pytorch.org/whl/cu130")
         $cudaVer = "13.1"
         $spargeWheel = "https://github.com/woct0rdho/SpargeAttn/releases/download/v0.1.0-windows.post4/spas_sage_attn-0.1.0%2Bcu130torch2.9.0andhigher.post4-cp39-abi3-win_amd64.whl"
